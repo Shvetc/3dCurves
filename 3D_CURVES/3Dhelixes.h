@@ -4,12 +4,12 @@
 #include<assert.h>
 class Dhelixes : public GeometricCurves
 {
+	unsigned int _a, _b;
 public:
-	int _a, _b;
-	
 	Dhelixes();
+	~Dhelixes() override;
 	int get_class_id();
-	void set_radius(int a, int b);
-	Point get_point(const double t);
-	FirstDerivative get_derivative(const double t);
+	void set_radiuses(unsigned int a, unsigned int b);
+	DCoordinates get_point(const double t);
+	DCoordinates get_derivative(const double t);
 };

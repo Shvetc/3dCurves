@@ -7,33 +7,36 @@ Ellipses::Ellipses()
 	_b = 0;
 }
 
+// as there is no any memory allocation in Curves we keep it empty
+Ellipses::~Ellipses(){}
+
 int Ellipses::get_class_id()
 {
 	return ellipse_id;
 }
 
-void Ellipses::set_radius(double a, double b)
+void Ellipses::set_radiuses(unsigned int a, unsigned int b)
 {
 	assert(a > 0 && b > 0);
 	_a = a;
 	_b = b;
 }
 
-Point Ellipses::get_point(const double t)
+DCoordinates Ellipses::get_point(const double t)
 {
 
-	Point p;
+	DCoordinates p;
 	p.x = _a * cos(t);
 	p.y = _b * sin(t);
 	p.z = 0;
 	return p;
 }
 
-FirstDerivative Ellipses::get_derivative(const double t)
+DCoordinates Ellipses::get_derivative(const double t)
 {
-	FirstDerivative fd;
-	fd.dx = (-1) * _a * sin(t);
-	fd.dy = _b * cos(t);
-	fd.dz = 0;
+	DCoordinates fd;
+	fd.x = (-1) * _a * sin(t);
+	fd.y = _b * cos(t);
+	fd.z = 0;
 	return fd;
 }

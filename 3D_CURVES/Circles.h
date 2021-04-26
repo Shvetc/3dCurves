@@ -5,13 +5,13 @@
 
 class Circles : public GeometricCurves
 {
+	unsigned int _r;
 public:
-	double _r;
-
 	Circles();
+	~Circles() override;
 	double get_r();
 	int get_class_id();
-	void set_radius(double r);
-	Point get_point(const double t);
-	FirstDerivative get_derivative(const double t);
+	void set_radius(unsigned int r);
+	DCoordinates get_point(const double t);
+	DCoordinates get_derivative(const double t);
 };

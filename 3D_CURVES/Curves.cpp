@@ -1,13 +1,11 @@
 #include<Curves.h>
 
-void Point::print()
+// as there is no any memory allocation in Curves we keep it empty
+GeometricCurves::~GeometricCurves(){}
+
+void DCoordinates::print()
 {
 	std::cout << "(" << x << "," << y << "," << z << ")" << std::endl;
-}
-
-void FirstDerivative::print()
-{
-	std::cout << "(" << dx << "," << dy << "," << dz << ")" << std::endl;
 }
 
 int  GeometricCurves::get_class_id()

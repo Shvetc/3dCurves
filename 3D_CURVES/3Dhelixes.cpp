@@ -5,29 +5,32 @@ Dhelixes::Dhelixes()
 	_a = 0;
 	_b = 0;
 }
+// as there is no any memory allocation in Curves we keep it empty
+Dhelixes::~Dhelixes(){}
+
 int Dhelixes::get_class_id()
 {
 	return helix_id;
 }
-void Dhelixes::set_radius(int a, int b)
+void Dhelixes::set_radiuses(unsigned int a, unsigned int b)
 {
 	assert(a > 0 && b > 0);
 	_a = a;
 	_b = b;
 }
-Point Dhelixes::get_point(const double t)
+DCoordinates Dhelixes::get_point(const double t)
 {
-	Point p;
+	DCoordinates p;
 	p.x = _a * t * cos(t);
 	p.y = _a * t * sin(t);
 	p.z = _b * t;
 	return p;
 }
-FirstDerivative Dhelixes::get_derivative(const double t)
+DCoordinates Dhelixes::get_derivative(const double t)
 {
-	FirstDerivative fd;
-	fd.dx = _a * cos(t) + _a * t * -1 * sin(t);
-	fd.dy = _a * sin(t) + _a * t * cos(t);
-	fd.dz = _b;
+	DCoordinates fd;
+	fd.x = _a * cos(t) + _a * t * -1 * sin(t);
+	fd.y = _a * sin(t) + _a * t * cos(t);
+	fd.z = _b;
 	return fd;
 }

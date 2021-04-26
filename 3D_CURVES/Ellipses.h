@@ -5,12 +5,13 @@
 
 class Ellipses : public GeometricCurves
 {
+	unsigned int _a;
+	unsigned int _b;
 public:
-	double _a;
-	double _b;
 	Ellipses();
+	~Ellipses() override;
 	int get_class_id();
-	void set_radius(double a, double b);
-	Point get_point(const double t);
-	FirstDerivative get_derivative(const double t);
+	void set_radiuses(unsigned int  a, unsigned int b);
+	DCoordinates get_point(const double t);
+	DCoordinates get_derivative(const double t);
 };
